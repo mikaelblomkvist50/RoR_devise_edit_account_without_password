@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>My Account</h2>
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <h4 class="page-header">Subscriber Slack Channel</h4>
+          <p>If you'd like hang out with us in chat, <a href="http://app-slackin.heroku.app.com/"> click here to join our slack channel</a> for subscribers only.</p>
+
+
+          <div class="row">
+            <div class="col-sm-8">
+              <h4>Edit My Profile</h4>
+              <hr>
+              <div class="form-group">
+                <div class="claerfix">
+
+                  <div class="pull-left">
+                    <%= image_tag avatar_url(current_user), class: "img-thumbnail avatar-medium" %>
+                  </div>
+
+                  <div class="pull-left" style="margin-left:20px;">
+                    <%= @user.fullname %>
+                  </div>
+
+                  <div class="pull-left" style="margin-left:20px;">
+                    Visit <a href="http://en.gravatar.com">Gravatar.com</a> to update your avatar.
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#modal-1">
+                  Edit Profile
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="container">
+  <div class="modal" id="modal-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" type="button" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">Edit my profile</h3>
+        </div>
+        <div class="modal-body">
+          <div class="modal-content">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="form-group">
+                <%= f.text_field :fullname, autofocus: true, :class => "form-control", :placeholder => "Full Name" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_field :githubname, autofocus: true, :class => "form-control", :placeholder => "Github Username" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_area :about, autofocus: true, :class => "form-control", :placeholder => "About Me", rows:8 %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Update", :class => "btn btn-primary btn-block" %>
+                <%= link_to "Back", :back, :class => "btn btn-primary btn-block" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="modal fade in" id="edit-profile-modal" tabindex="-1" role="dialog" aria-lablledby="edit-profile-label" style="display: block; padding-right 17px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.text_field :fullname, autofocus: true, :class => "form-control", :placeholder => "Full Name" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :githubname, autofocus: true, :class => "form-control", :placeholder => "Github Username" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_area :about, autofocus: true, :class => "form-control", :placeholder => "About Me", rows:8 %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update", :class => "btn btn-primary btn-block" %>
+          <%= link_to "Back", :back, :class => "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+
+<!-- <div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <div class="row">
+      <h2>Edit my Profil</h2>
+      <hr>
+
+      <%= image_tag avatar_url(current_user), class: "img-thumbnail avatar-small pull-left" %>
+      <p><%= @user.fullname %></p>
+      <%= link_to "EDIT YOUR PROFILE", edit_user_registration_path, :class => "btn btn-primary" %>
+    </div>
+
+
+
+  </div>
+</div> -->

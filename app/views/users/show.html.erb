@@ -1,0 +1,8 @@
+<%= image_tag avatar_url(current_user), class: "img-thumbnail avatar-large" %>&nbsp;
+<h1><%= @user.fullname %></h1>
+<h3>Joined on <%= current_user.created_at.strftime("%B %d") %>
+</h3>
+<h3><%= current_user.githubname if current_user.githubname.present? %></h3>
+<h6><%= current_user.about if current_user.about.present? %></h6>
+
+<%= link_to "EDIT YOUR PROFILE", edit_user_registration_path, :class => "btn btn-primary" %>
